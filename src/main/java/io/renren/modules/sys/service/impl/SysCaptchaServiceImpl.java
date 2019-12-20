@@ -52,6 +52,12 @@ public class SysCaptchaServiceImpl extends ServiceImpl<SysCaptchaDao, SysCaptcha
         return producer.createImage(code);
     }
 
+    /**
+     * 校验这个验证码
+     * @param uuid  uuid
+     * @param code  验证码
+     * @return
+     */
     @Override
     public boolean validate(String uuid, String code) {
         SysCaptchaEntity captchaEntity = this.getOne(new QueryWrapper<SysCaptchaEntity>().eq("uuid", uuid));
